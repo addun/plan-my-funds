@@ -1,0 +1,40 @@
+.dashboard-container {
+  padding: 2rem;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .table-container {
+    margin-bottom: 2rem;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 0.5rem;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f4f4f4;
+      }
+    }
+  }
+}
+
+.type-INCOME {
+  color: #28a745;
+}
+
+.type-OUTCOME {
+  color: #dc3545;
+}

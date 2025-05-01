@@ -1,0 +1,20 @@
+<header class="header">
+  <div class="header-left">
+    <h1 class="website-name">
+      <a [routerLink]="['/']">PlanMyFunds</a>
+    </h1>
+  </div>
+  <div class="header-right">
+    @let state = authState();
+
+    @switch (state.name) {
+      @case ('LOGGED_IN') {
+        <button (click)="signOut()" class="header-link">Sign out</button>
+      }
+      @case ('LOGGED_OUT') {
+        <a [routerLink]="['/auth/sign-in']" class="header-link">Sign In</a>
+        <a [routerLink]="['/auth/sign-up']" class="header-link">Sign Up</a>
+      }
+    }
+  </div>
+</header>
