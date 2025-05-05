@@ -1,19 +1,19 @@
 <div class="dashboard-container">
   <h1>Dashboard</h1>
   <div class="table-container">
-    <h2>Account history</h2>
+    <h2>Posts</h2>
     <table>
       <thead>
         <tr>
-          <th>Amount</th>
-          <th>Amount</th>
+          <th>Title</th>
+          <th>Content</th>
         </tr>
       </thead>
       <tbody>
-        @for (income of accountHistory(); track $index) {
+        @for (income of posts(); track $index) {
           <tr>
-            <td>{{ income.description }}</td>
-            <td [class]="`type-${income.status}`">{{ income.amount | number: '0.2-2' }} {{ income.currency }}</td>
+            <td>{{ income.title }}</td>
+            <td>{{ income.content }}</td>
           </tr>
         }
       </tbody>

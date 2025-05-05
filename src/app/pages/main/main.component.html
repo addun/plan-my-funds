@@ -1,9 +1,6 @@
 <main>
   <h1>Main Component</h1>
-  <p>
-    Plan My Funds is a personal finance application designed to help you manage your income, expenses, and savings
-    efficiently. Track your spending, set financial goals, and gain insights to make smarter financial decisions.
-  </p>
+  <p>{{ mainPageContent()?.content }}</p>
 
   <a [routerLink]="['/', 'dashboard']">Go to Dashboard</a>
 </main>

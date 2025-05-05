@@ -1,18 +1,15 @@
-import { DecimalPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { AccountHistoryApiService } from '../../api/account-history';
+import { PostApiService } from '../../api/post/post.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  imports: [DecimalPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardComponent {
-  private readonly accountHistoryApiService = inject(AccountHistoryApiService);
+  private readonly posts$ = inject(PostApiService).getPosts();
 
-  private readonly accountHistory$ = this.accountHistoryApiService.getAccountHistory();
-  protected readonly accountHistory = toSignal(this.accountHistory$);
+  protected readonly posts = toSignal(this.posts$);
 }

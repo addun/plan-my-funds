@@ -92,7 +92,8 @@
               "buildTarget": "plan-my-funds:build:production"
             },
             "development": {
-              "buildTarget": "plan-my-funds:build:development"
+              "buildTarget": "plan-my-funds:build:development",
+              "proxyConfig": "src/proxy/proxy.development.json"
             }
           },
           "defaultConfiguration": "development"

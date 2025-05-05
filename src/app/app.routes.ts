@@ -16,6 +16,6 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     loadComponent: () => import('./pages/dashboard'),
-    canActivate: [redirectUnauthenticatedToLogin],
+    // canActivate: [redirectUnauthenticatedToLogin],
   },
 ];
