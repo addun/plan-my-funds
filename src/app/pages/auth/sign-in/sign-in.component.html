@@ -12,16 +12,7 @@
       autocomplete="off"
     />
     @let email = signInForm.controls.email;
-    @if (email.invalid && email.touched) {
-      <div class="error">
-        @if (email.hasError('required')) {
-          <small>Email is required.</small>
-        }
-        @if (email.hasError('email')) {
-          <small>Invalid email format.</small>
-        }
-      </div>
-    }
+    <app-form-control-errors [control]="email" />
   </div>
   <div class="form-group">
     <label for="password">Password:</label>
@@ -36,16 +27,7 @@
     />
 
     @let password = signInForm.controls.password;
-    @if (password.invalid && password.touched) {
-      <div class="error">
-        @if (password.hasError('required')) {
-          <small>Password is required.</small>
-        }
-        @if (password.hasError('minlength')) {
-          <small>Password must be at least 6 characters long.</small>
-        }
-      </div>
-    }
+    <app-form-control-errors [control]="password" />
   </div>
   <button type="submit" class="btn-submit">Sign In</button>
 </form>

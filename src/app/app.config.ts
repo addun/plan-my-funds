@@ -1,17 +1,18 @@
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import {
   ApplicationConfig,
   inject,
   provideAppInitializer,
   provideExperimentalZonelessChangeDetection,
 } from '@angular/core';
-import { provideRouter } from '@angular/router';
-import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
-import { routes } from './app.routes';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { provideRouter } from '@angular/router';
 import { CurrentUserFeature } from '@app/features/auth/current-user.feature';
+import { provideCommonErrorMap } from '@app/shared/form-error';
 import { environment } from '../environments/environment';
+import { routes } from './app.routes';
 import { bearerInterceptorV3Fn } from './core/bearer-v3.interceptor';
 
 export const firebaseConfig = {
@@ -32,5 +33,11 @@ export const appConfig: ApplicationConfig = {
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideAppInitializer(() => inject(CurrentUserFeature).setCurrentUser()),
+
+    provideCommonErrorMap({
+      required: () => import('@app/shared/form-errors/required'),
+      minlength: () => import('@app/shared/form-errors/minlength'),
+      maxlength: () => import('@app/shared/form-errors/maxlength'),
+    }),
   ],
 };

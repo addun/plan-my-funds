@@ -2,12 +2,13 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SignInFeatureService } from '@app/features/auth/sign-in.feature';
+import { FormControlErrorsComponent } from '@app/shared/form-error';
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, FormControlErrorsComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignInComponent {

@@ -9,12 +9,13 @@ import {
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { SignUpFeatureService } from '@app/features/auth/sign-up.feature';
+import { FormControlErrorDirective, FormControlErrorsComponent } from '@app/shared/form-error';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, FormControlErrorDirective, FormControlErrorsComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignUpComponent {
@@ -25,7 +26,7 @@ export class SignUpComponent {
     {
       email: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.email] }),
       password: new FormControl('', { nonNullable: true, validators: [Validators.required, Validators.minLength(6)] }),
-      repeatPassword: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
+      repeatPassword: new FormControl('', { nonNullable: true, validators: [] }),
     },
     { validators: [passwordsMatchValidator] },
   );
